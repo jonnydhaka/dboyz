@@ -1,0 +1,22 @@
+{
+  "name": "smartdatasoft/dboyzforwp",
+   "description": "this is dboyz lib for ps dboyz",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "SmartDataSoft",
+      "email": "arifur.rahman@smartdatasoft.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Dboyz\\PS\\": "src/"
+    },
+    "files": [
+      	"src/functions.php"
+    ]
+  }
+}

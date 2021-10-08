@@ -1,0 +1,410 @@
+*{
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none !important;
+  list-style: none !important;
+  outline: none !important;
+}
+body{
+    margin:0;
+}
+
+/*Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+/*Dboyz Login Page*/
+.site-header{
+  padding: 0 !important;
+}
+.container-auto{
+    width: 100%;
+    max-width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container-auto-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.header-area{
+  overflow: hidden;
+  position: fixed;
+  z-index: 9;
+}
+.header-content {
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-logo a img{
+    width: auto;
+    height: 55px;
+}
+.elem-close-button a:hover{
+  color:#5c6771; !important;
+}
+.elem-close-button a{
+  font-size: 30px;
+  color:#a5afb8; !important;
+  transition: .5s;
+}
+
+/*Start Dboyz Ps Login*/
+.dboyz-ps-my-account{
+  overflow: hidden;
+    height: 94vh;
+    display: flex;
+    align-items: center;
+}
+.ps-my-account-box{
+    background-color: #fff;
+    border: 1px solid #e6e9ec;
+    max-width: 540px;
+    padding: 60px;
+    font-size: 1rem;
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: 0 5px 30px 0 rgba(0,0,0,.09);
+    margin: 0 auto;
+
+}
+.ps-my-account-form h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 2.3rem;
+    color: #343352;
+    line-height: 1;
+    letter-spacing: .5px;
+}
+
+.ps-dboyz-form{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.ps-my-account-form p{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #6d7882;
+}
+.create-account-btn:hover{
+  color: #343352;
+}
+.create-account-btn{
+   color: #1a73e8;
+}
+.dboyz-ps-field-group{
+   margin-bottom: 10px;
+}
+.dboyz-ps-field-label{
+    line-height: 1;
+    font-weight: 400;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #6d7882;
+    margin-bottom:5px;
+    display: none;
+}
+.dboyz-ps-input-field:focus{
+  border: 1px solid #a5afb8 !important;
+}
+.dboyz-ps-input-field{
+    font-size: 16px;
+    min-height: 47px;
+    padding: 6px 16px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #c4c4c4 !important;
+    background-color: transparent;
+    color: #373a3c;
+}
+.dboyz-ps-field-group input[type=submit]:hover{
+    background-color: rgb(233, 77, 26) !important;
+    color: #fff !important;
+}
+.dboyz-ps-field-group input[type=submit] {
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    background-color: #65d49a !important;
+    color: #fff !important;
+    font-size: .95em;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    width: 100%;
+    transition: all .5s;
+    padding: 15px 30px;
+    border-radius: 4px;
+    border: 1px solid transparent; 
+}
+
+.ps-dboyz-note-redirect a {
+    color: #6d7882;
+}
+.ps-dboyz-note-redirect a:hover{
+    color: #1a73e8;
+}
+
+/*Start PS Dboyz Footer Area*/
+.ps-dboyz-footer-area{
+  overflow: hidden;
+  padding: 20px 0;
+  position: fixed;
+    bottom: 0;
+  width: 100%;
+  z-index: 9;
+}
+.ps-elem-footer-content p{
+    text-align: center;
+    font-size: .75em;
+    color: #6d7882;
+}
+.ps-elem-footer-content p a{
+    color: #1a73e8; 
+}
+.ps-elem-footer-content p a:hover{
+    color: #343352; 
+}
+
+.successfully-login {
+    color: #155724 !important;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 15px;
+    border-left: 5px solid #b1debc;
+    position: relative;
+    text-align: left;
+    margin: 20px 0;
+}
+.ps-elem-log-out-btn a:hover{
+  color: #1a73e8; !important;
+}
+.ps-elem-log-out-btn a{
+  color:#6d7882; !important: 
+}
+.login-message p{
+    padding: 15px;
+    text-align: left;
+    margin: 20px 0;
+}
+.success-message p{
+    color: #155724 !important;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    border-left: 5px solid #b1debc;
+}
+.error-message p{
+      color: #a94442 !important;
+    background-color: #f2dede;
+    border-color: #e8c4c4;
+    border-left: 5px solid #e8c4c4;
+}
+
+
+/*End PS Dboyz Footer Area*/
+
+/***** Design Two  *****/
+
+#ebtr-team-section-252 .ebtr-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+#ebtr-team-section-252 .ebtr-container-left {
+  margin-top: 30px;
+  flex: 1;
+}
+
+#ebtr-team-section-252 .ebtr-container-right {
+  flex: 1 0 calc(21%);
+  display: flex;
+}
+
+#ebtr-team-section-252 .ebtr-container-right .ebtr-row {
+  flex: 1;
+  display: flex;
+  gap: 30px;
+}
+
+.ebtr-team-box-252 {
+  flex: 1;
+  background: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  text-align: center;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.ebtr-team-box-252 .ebtr-team-image {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #cacaca, #f0f0f0);
+  box-shadow: 26px -26px 52px #bebebe, -26px 26px 52px #ffffff;
+}
+
+.ebtr-team-box-252 .ebtr-team-image img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.ebtr-team-box-252 .ebtr-team-text {
+  margin-top: 30px;
+}
+
+.ebtr-team-box-252 .ebtr-team-text h3.ebtr-team-name {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.ebtr-team-box-252 .ebtr-team-text p.ebtr-team-desig {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.ebtr-team-box-252 .ebtr-team-social {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.ebtr-team-box-252 .ebtr-team-social a {
+  border-radius: 150px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #c6c5c5, #ebeaea);
+  box-shadow: 20px 20px 60px #bbbaba, -20px -20px 60px #fdfcfc;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Event */
+.events-section{
+  position:relative;
+  padding:130px 0 100px;
+  background-color:#fff;
+  overflow:hidden
+}
+.event-block-three{
+  position:relative;
+  margin-bottom:30px
+}
+.event-block-three .inner-box{
+  position:relative;
+  display:block;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:20px;
+  overflow:hidden;
+  -webkit-transition:all .3s ease;
+  -ms-transition:all .3s ease;
+  -o-transition:all .3s ease;
+  -moz-transition:all .3s ease;
+  transition:all .3s ease
+}
+.event-block-three .inner-box:hover{
+  -webkit-box-shadow:0 15px 40px 5px rgba(0,0,0,.1);
+  -ms-box-shadow:0 15px 40px 5px rgba(0,0,0,.1);
+  box-shadow:0 15px 40px 5px rgba(0,0,0,.1)
+}
+.event-block-three .image-box{
+  position:relative
+}
+.event-block-three .image-box img{
+  width:100%
+}
+.event-block-three .image-box .date{
+  position:absolute;
+  left:30px;
+  top:30px;
+  width:74px;
+  height:74px;
+  font-size:30px;
+  z-index:1;
+  line-height:1em;
+  font-family:'Yeseva One',cursive;
+  color:#fff;
+  padding-top:15px;
+  text-align:center;
+  border-radius:20px 0 20px 0
+}
+.event-block-three .image-box .date .month{
+  position:relative;
+  display:block;
+  font-size:15px;
+  line-height:1.2em
+}
+.event-block-three .inner-box .lower-content{
+  position:relative;
+  padding:35px 30px 40px
+}
+.event-block-three .inner-box h3{
+  font-size:24px;
+  line-height:1.3em;
+  font-weight:400;
+  margin-bottom:15px;
+  color:#25283a
+}
+.event-block-three .inner-box h3 a{
+  color:#25283a
+}
+.event-block-three .inner-box .text{
+  line-height:1.6em;
+  font-size:16px;
+  margin-bottom:30px
+}
+.event-block-three .info{
+  position:relative!important;
+  margin-bottom:20px!important
+}
+.event-block-three .info li:before{
+  display:none!important
+}
+.event-block-three .info li{
+  list-style:outside none;
+  position:relative!important;
+  display:inline-block;
+  font-size:15px;
+  color:#848484!important;
+  margin-right:15px;
+  margin-bottom:10px!important;
+  padding-left:0!important
+}
+.event-block-three .info li:last-child{
+  margin-right:0
+}
+.event-block-three .info li .icon{
+  position:relative;
+  padding-right:3px
+}
+.event-block-three .inner-box:hover .btn-style-two{
+  color:#fff
+}
