@@ -25,12 +25,14 @@ class Meta
 
 	function dboyzprofile_edit_action($user)
 	{
-		$dboyzstatus = get_user_meta($user->ID, 'dboyzstatus');
+
+
 		if ('add-new-user' == $user) {
 			$uid = 0;
 		} else {
 			$uid = $user->ID;
 		}
+		$dboyzstatus = get_user_meta($uid, 'dboyzstatus');
 ?>
 		<table class="form-table">
 			<tr>

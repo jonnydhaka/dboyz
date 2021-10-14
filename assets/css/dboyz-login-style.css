@@ -61,7 +61,7 @@ body{
 /*Start Dboyz Ps Login*/
 .dboyz-ps-my-account{
   overflow: hidden;
-    height: 94vh;
+
     display: flex;
     align-items: center;
 }

@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (0 === count($errors)) {
 
+
         $password = $_POST['pspassword'];
 
         $new_user_id = wp_create_user($username, $password, $email);
@@ -68,9 +69,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_FILES['dboyz_image_upload']) && $_FILES['dboyz_image_upload']['size']) {
             $attach_id = imageupload($_FILES['dboyz_image_upload']);
         }
+        wp_update_user([
+            'ID' => $new_user_id, // this is the ID of the user you want to update.
+            'first_name' => $_POST['first_name'],
+            'last_name' => $_POST['last_name'],
+            'website' => $_POST['website'],
+            'description' => $_POST['description'],
+        ]);
 
-        update_user_meta($new_user_id, 'user_instagram', $_POST['facebook']);
-        update_user_meta($new_user_id, 'user_instagram', $_POST['twitter']);
+        update_user_meta($new_user_id, 'user_facebook', $_POST['facebook']);
+        update_user_meta($new_user_id, 'user_twitter', $_POST['twitter']);
         update_user_meta($new_user_id, 'user_instagram', $_POST['instagram']);
         update_user_meta($new_user_id, 'dboyzprofile_image',  $attach_id);
 
@@ -124,10 +132,29 @@ $termssec = get_terms('section', array('hide_empty' => false));
                             <input id="username" type="hidden" name="username">
                             <input id="password" class="cp-password_stub" type="hidden" name="password">
                             <div class="dboyz-ps-form-fields-wrapper">
+
+
                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="username">Username</label>
                                     <input class="dboyz-ps-input-field" type="text" name="psusername" placeholder="Username" id="username" autocomplete="off">
                                 </div>
+
+                                <div class="dboyz-ps-field-group">
+                                    <label class="dboyz-ps-field-label" for="first_name">First Name</label>
+                                    <input class="dboyz-ps-input-field" type="text" name="first_name" placeholder="First Name" id="first_name" autocomplete="off">
+                                </div>
+
+                                <div class="dboyz-ps-field-group">
+                                    <label class="dboyz-ps-field-label" for="last_name">Last Name</label>
+                                    <input class="dboyz-ps-input-field" type="text" name="last_name" placeholder="Last Name" id="last_name" autocomplete="off">
+                                </div>
+
+                                <div class="dboyz-ps-field-group">
+                                    <label class="dboyz-ps-field-label" for="website">Website</label>
+                                    <input class="dboyz-ps-input-field" type="text" name="website" placeholder="Website" id="website" autocomplete="off">
+                                </div>
+
+
                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="email">Email Address</label>
                                     <input class="dboyz-ps-input-field" type="email" name="email" placeholder="Email Address" id="email">
@@ -155,6 +182,7 @@ $termssec = get_terms('section', array('hide_empty' => false));
                                     <label class="dboyz-ps-field-label" for="username">Instagram</label>
                                     <input class="dboyz-ps-input-field" type="text" name="instagram" placeholder="Instagram Url" id="instagram" autocomplete="off">
                                 </div>
+                                <textarea name="description" id="description" rows="5" cols="30"></textarea>
                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="dboyz_image_upload">Image</label>
                                     <input type="file" name="dboyz_image_upload" id="dboyz_image_upload" multiple="false" />
@@ -176,7 +204,7 @@ $termssec = get_terms('section', array('hide_empty' => false));
                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="dboyz_image_upload">Section</label>
                                     <?php
-                                    echo "<select name='designation'>";
+                                    echo "<select name='section'>";
                                     echo "<option value=''>-Select-</option>";
                                     foreach ($termssec as $options_value) {
                                         echo "<option value='{$options_value->term_id}' >{$options_value->name}</option>";
