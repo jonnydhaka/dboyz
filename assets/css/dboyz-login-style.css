@@ -68,7 +68,7 @@ body{
 .ps-my-account-box{
     background-color: #fff;
     border: 1px solid #e6e9ec;
-    max-width: 540px;
+    max-width: 700px;
     padding: 60px;
     font-size: 1rem;
     border-radius: 3px;
@@ -105,15 +105,18 @@ body{
 .dboyz-ps-field-group{
    margin-bottom: 10px;
 }
-.dboyz-ps-field-label{
-    line-height: 1;
-    font-weight: 400;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #6d7882;
-    margin-bottom:5px;
-    display: none;
+.dboyz-ps-field-label {
+
+  line-height: 1;
+  font-weight: 800;
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  margin: 15px 0;
+  text-decoration: underline !important;
+  border-bottom: 1px solid;
+
 }
 .dboyz-ps-input-field:focus{
   border: 1px solid #a5afb8 !important;
@@ -211,6 +214,9 @@ body{
     background-color: #f2dede;
     border-color: #e8c4c4;
     border-left: 5px solid #e8c4c4;
+}
+#dboyz_image_upload {
+  width: 100%;
 }
 
 

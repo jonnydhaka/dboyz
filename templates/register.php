@@ -182,7 +182,11 @@ $termssec = get_terms('section', array('hide_empty' => false));
                                     <label class="dboyz-ps-field-label" for="username">Instagram</label>
                                     <input class="dboyz-ps-input-field" type="text" name="instagram" placeholder="Instagram Url" id="instagram" autocomplete="off">
                                 </div>
-                                <textarea name="description" id="description" rows="5" cols="30"></textarea>
+                                <div class="dboyz-ps-field-group">
+                                    <label class="dboyz-ps-field-label" for="dboyz_image_upload">BIO</label>
+                                    <textarea name="description" id="description" placeholder="BIO" rows="5" cols="30"></textarea>
+                                </div>
+
                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="dboyz_image_upload">Image</label>
                                     <input type="file" name="dboyz_image_upload" id="dboyz_image_upload" multiple="false" />
