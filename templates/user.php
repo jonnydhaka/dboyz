@@ -39,7 +39,7 @@ if (isset($image_src[0])) {
     <div class="fs-4">Section - <?php echo $user_section[0]->name; ?></div>
     <div class="fs-4">Designation - <?php echo $designation; ?></div>
     <p><?php echo $author_info->description; ?></p>
-    <div class="ebtr-team-box-252">
+    <div class="ebtr-team-box-social">
         <div class="ebtr-team-social">
             <?php
             if (get_the_author_meta('user_facebook', $user->ID) != '') { ?>

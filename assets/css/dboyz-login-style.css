@@ -294,8 +294,30 @@ body{
   display: flex;
   gap: 10px;
 }
+.ebtr-team-box-social .ebtr-team-social {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
 
 .ebtr-team-box-252 .ebtr-team-social a {
+  border-radius: 150px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #c6c5c5, #ebeaea);
+  box-shadow: 20px 20px 60px #bbbaba, -20px -20px 60px #fdfcfc;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  color: #000;
+  text-decoration: none;
+}
+
+.ebtr-team-box-social .ebtr-team-social a {
   border-radius: 150px;
   border-radius: 50%;
   background: linear-gradient(145deg, #c6c5c5, #ebeaea);
