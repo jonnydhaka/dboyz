@@ -3,7 +3,7 @@
 Template Name: Login 
 */
 
-get_header();
+///get_header();
 global $wpdb, $user_ID;
 $total_authors = $my_users->total_users;
 $number = isset($number) ? $number : $total_authors;
@@ -133,4 +133,4 @@ $authors = $my_users->get_results(); ?>
 <?php
 if (is_user_logged_in()) {
 }
-get_footer();
+//get_footer();
