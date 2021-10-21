@@ -25,8 +25,7 @@ class Meta
 
 	function dboyzprofile_edit_action($user)
 	{
-
-
+		
 		if ('add-new-user' == $user) {
 			$uid = 0;
 		} else {

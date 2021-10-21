@@ -62,9 +62,9 @@ $authors = $my_users->get_results(); ?>
                             </div>
                             <!-- .ebtr-team-image -->
                             <div class="ebtr-team-text">
-                                <h3 class="ebtr-team-name"><a href="<?php echo site_url() . "/user/" . $author_info->user_login ?>"><?php echo $author_info->display_name; ?></a></h3>
-                                <p class="ebtr-team-sec"><?php echo $user_section[0]->name ?></p>
-                                <p class="ebtr-team-desig"><?php echo $designation ?></p>
+                                <h3 class="ebtr-team-name"><a href="<?php echo site_url() . "/user/" . $author_info->user_login ?>"><?php echo $author_info->first_name . " " . $author_info->last_name; ?></a></h3>
+                                <p class="ebtr-team-sec"><a href="<?php echo site_url() . "/users/section/" . str_replace(" ", "_", $user_section[0]->name) ?>"><?php echo $user_section[0]->name ?></a></p>
+                                <p class="ebtr-team-desig"><a href="<?php echo site_url() . "/users/designation/" . str_replace(" ", "_", $designation) ?>"><?php echo $designation ?></a></p>
                             </div>
                             <!-- .ebtr-team-text -->
                             <div class="ebtr-team-social">

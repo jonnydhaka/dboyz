@@ -23,7 +23,7 @@ class Frontend
         //http://localhost/wp-themes/member/user/test2/
         add_rewrite_rule('^user/([^/]+)/?$', 'index.php?pagename=members&user=$matches[1]', 'top');
 
-        add_rewrite_rule('^users/([^/]*)/([^/]*)/?', 'index.php?pagename=test2&taxno=$matches[1]&termname=$matches[2]', 'top');
+        add_rewrite_rule('^users/([^/]*)/([^/]*)/?', 'index.php?pagename=search&taxno=$matches[1]&termname=$matches[2]', 'top');
     }
 
     function dboyzquery_vars($qvars)

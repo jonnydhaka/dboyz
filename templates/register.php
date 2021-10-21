@@ -45,27 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 
-
-
-
-
-
     if (0 === count($errors)) {
 
-
         $password = $_POST['pspassword'];
-
         $new_user_id = wp_create_user($username, $password, $email);
-
         $user = get_user_by('id', $new_user_id);
-
         //wp_update_user( array ('ID' => $id, 'role' => 'dboyzuser') ) ;
         // Remove role
         $user->remove_role('subscriber');
-
         // Add role
         $user->add_role('dboyzuser');
-
         if (isset($_FILES['dboyz_image_upload']) && $_FILES['dboyz_image_upload']['size']) {
             $attach_id = imageupload($_FILES['dboyz_image_upload']);
         }
@@ -182,11 +171,10 @@ $termssec = get_terms('section', array('hide_empty' => false));
                                     <label class="dboyz-ps-field-label" for="username">Instagram</label>
                                     <input class="dboyz-ps-input-field" type="text" name="instagram" placeholder="Instagram Url" id="instagram" autocomplete="off">
                                 </div>
-                                <div class="dboyz-ps-field-group">
+                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="dboyz_image_upload">BIO</label>
                                     <textarea name="description" id="description" placeholder="BIO" rows="5" cols="30"></textarea>
                                 </div>
-
                                 <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="dboyz_image_upload">Image</label>
                                     <input type="file" name="dboyz_image_upload" id="dboyz_image_upload" multiple="false" />
