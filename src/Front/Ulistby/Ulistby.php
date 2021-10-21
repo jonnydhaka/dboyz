@@ -56,7 +56,9 @@ class Ulistby
         //ob_start();
 
         if ($my_users->total_users > 0) {
+            ob_start();
             dboyzget_template("users.php", array("my_users" => $my_users));
+            return ob_get_clean();
         } else { ?>
             <h2>No Member found</h2>
 <?php }
@@ -64,9 +66,5 @@ class Ulistby
         //endi
 
 
-        //include dboyz_PS_PATH . '/templates/users.php';
-        // $output = ob_get_contents();
-        // ob_end_clean();
-        // if (is_page()) return  $output;
     }
 }
