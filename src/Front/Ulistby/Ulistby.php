@@ -20,7 +20,6 @@ class Ulistby
 
     function dboyzuser_listing($atts, $content = null)
     {
-        global $post;
         extract(shortcode_atts(array(
             "termname" => '',
             "taxno" => ''
@@ -42,9 +41,14 @@ class Ulistby
 
         $user = get_objects_in_term($term->term_id, $taxno);
         $userlist = implode(', ', $user);
+        $number = get_option('posts_per_page');
+        $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $offset = ($page - 1) * $number;
         $my_users = new \WP_User_Query(array(
             'include' => $userlist,
             'orderby' => 'id',
+            'offset' => $offset,
+            'number' => $number,
             'meta_query' => array(
                 array(
                     'key' => 'dboyzstatus',

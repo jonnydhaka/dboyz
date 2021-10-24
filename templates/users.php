@@ -1,31 +1,11 @@
 <?php
-/* 
-Template Name: Login 
-*/
-
-///get_header();
 global $wpdb, $user_ID;
 $total_authors = $my_users->total_users;
 $number = isset($number) ? $number : $total_authors;
 $search = isset($search) ? $search : false;
-$page = isset($page) ? $page : 1;
+$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $total_pages = intval($total_authors / $number) + 1;
 $authors = $my_users->get_results(); ?>
-
-<!-- <div class="author-search">
-    <h2>Search authors by name</h2>
-    <form method="get" id="sul-searchform" action="<?php the_permalink() ?>">
-        <label for="as" class="assistive-text">Search</label>
-        <input type="text" class="field" name="as" id="sul-s" placeholder="Search Authors" />
-        <input type="submit" class="submit" name="submit" id="sul-searchsubmit" value="Search Authors" />
-    </form>
-    <?php
-    if ($search) { ?>
-        <h2>Search Results for: <em><?php echo $search; ?></em></h2>
-        <a href="<?php the_permalink(); ?>">Back To Author Listing</a>
-    <?php } ?>
-
-</div> -->
 
 <!-- <div class="container">
   <div class="row"> -->
@@ -129,8 +109,4 @@ $authors = $my_users->get_results(); ?>
             <span class="nav-next"><a rel="next" href="<?php the_permalink() ?>page/<?php echo $page + 1; ?>/">Next <span class="meta-nav">→</span></a></span>
         <?php } ?>
     </nav>
-<?php } ?>
-<?php
-if (is_user_logged_in()) {
-}
-//get_footer();
+<?php }
