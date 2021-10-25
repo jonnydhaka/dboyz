@@ -20,7 +20,10 @@ class Menu
 		add_filter('manage_edit-types_columns',  [$this, 'dboyztypes_user_column']);
 		add_filter('manage_types_custom_column', [$this, 'dboyzmanage_types_column'], 10, 3);
 		add_filter('manage_edit-designation_columns',  [$this, 'dboyztypes_user_column']);
-		add_filter('manage_designation_custom_column', [$this, 'dboyzmanage_types_column'], 10, 3);
+		add_filter('manage_designation_custom_column', [$this, 'dboyzmanage_designation_column'], 10, 3);
+		
+		add_filter('manage_edit-section_columns',  [$this, 'dboyztypes_user_column']);
+		add_filter('manage_section_custom_column', [$this, 'dboyzmanage_section_column'], 10, 3);
 	}
 
 	function dboyztypes_user_column($columns)
@@ -34,6 +37,30 @@ class Menu
 
 		if ('users' === $column) {
 			$term = get_term($term_id, 'types');
+			if (isset($term->count)) {
+				echo $term->count;
+			} else {
+				echo "0";
+			}
+		}
+	}
+	function dboyzmanage_designation_column($display, $column, $term_id)
+	{
+
+		if ('users' === $column) {
+			$term = get_term($term_id, 'designation');
+			if (isset($term->count)) {
+				echo $term->count;
+			} else {
+				echo "0";
+			}
+		}
+	}
+	function dboyzmanage_section_column($display, $column, $term_id)
+	{
+
+		if ('users' === $column) {
+			$term = get_term($term_id, 'section');
 			if (isset($term->count)) {
 				echo $term->count;
 			} else {

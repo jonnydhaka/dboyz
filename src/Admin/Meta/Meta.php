@@ -275,7 +275,7 @@ class Meta
 		if (isset($_GET['taxonomy']) && $_GET['taxonomy'] == 'designation' && $submenu_file == 'edit-tags.php?taxonomy=designation') {
 			$parent_file = 'users.php';
 		}
-		if (isset($_GET['taxonomy']) && $_GET['taxonomy'] == 'designation' && $submenu_file == 'edit-tags.php?taxonomy=section') {
+		if (isset($_GET['taxonomy']) && $_GET['taxonomy'] == 'section' && $submenu_file == 'edit-tags.php?taxonomy=section') {
 			$parent_file = 'users.php';
 		}
 
