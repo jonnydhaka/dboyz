@@ -21,6 +21,9 @@ class Elementor
 	{
 
 		include_once __DIR__ . '/events.php';
+		include_once __DIR__ . '/Dboys_Blog.php';
+
+		
 	}
 	function add_elementor_widget_categories($elements_manager)
 	{

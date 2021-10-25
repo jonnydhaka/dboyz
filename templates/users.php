@@ -4,17 +4,16 @@ $total_authors = $my_users->total_users;
 $number = isset($number) ? $number : $total_authors;
 $search = isset($search) ? $search : false;
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$total_pages = intval($total_authors / $number) + 1;
-$authors = $my_users->get_results(); ?>
+$total_pages = ceil($total_authors / $number);
+$authors = $my_users->get_results(); 
+?>
 
 <!-- <div class="container">
   <div class="row"> -->
 <section id="ebtr-team-section-252" class="ebtr-section-padding">
     <div class="ebtr-container">
 
-        <?php if (!empty($authors)) { ?>
-
-            <?php
+        <?php if (!empty($authors)) { 
             foreach ($authors as $author) {
                 $author_info = get_userdata($author->ID);
                 $image_src = wp_get_attachment_image_src(get_the_author_meta('dboyzprofile_image', $author->ID), 'thumbnail');
@@ -96,8 +95,7 @@ $authors = $my_users->get_results(); ?>
     <h2>No authors found</h2>
 <?php } //endif
         //echo get_permalink(get_the_ID());;
-?>
-<?php if ($page != 1) { ?>
+    if ( !is_front_page() && $total_pages >1 ) { ?>
 
     <nav id="nav-single" style="clear:both; float:none; margin-top:20px;">
         <h3 class="assistive-text">Post navigation</h3>

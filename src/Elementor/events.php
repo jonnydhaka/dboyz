@@ -365,7 +365,19 @@ class Events extends Widget_Base
                                     $animate_class = 'fadeInLeft';
                                 }
                                 ?>
-                                <div class="event-block-two">
+
+                                <div class="">
+                                    <div class="text-center">
+                                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> 
+                                    <div class="image-box 4">
+                                        <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($bebio_image_src); ?>" alt="<?php echo esc_attr('Alt'); ?>"></a>
+                                    </div>
+
+                                    </div>
+                                </div>
+
+
+                                <!-- <div class="event-block-two">
                                     <div class="inner-box">
                                         <div class="row clearfix">
                                             <div class="title-column col-lg-6 col-md-12 col-sm-12">
@@ -391,7 +403,7 @@ class Events extends Widget_Base
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             <?php }
                             wp_reset_postdata(); ?>
 
