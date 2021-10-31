@@ -19,11 +19,15 @@ class Menu
 
 		add_filter('manage_edit-types_columns',  [$this, 'dboyztypes_user_column']);
 		add_filter('manage_types_custom_column', [$this, 'dboyzmanage_types_column'], 10, 3);
+
 		add_filter('manage_edit-designation_columns',  [$this, 'dboyztypes_user_column']);
 		add_filter('manage_designation_custom_column', [$this, 'dboyzmanage_designation_column'], 10, 3);
-		
+
 		add_filter('manage_edit-section_columns',  [$this, 'dboyztypes_user_column']);
 		add_filter('manage_section_custom_column', [$this, 'dboyzmanage_section_column'], 10, 3);
+
+		add_filter('manage_edit-bloodgroup_columns',  [$this, 'dboyztypes_user_column']);
+		add_filter('manage_bloodgroup_custom_column', [$this, 'dboyzmanage_bloodgroup_column'], 10, 3);
 	}
 
 	function dboyztypes_user_column($columns)
@@ -69,6 +73,19 @@ class Menu
 		}
 	}
 
+	function dboyzmanage_bloodgroup_column($display, $column, $term_id)
+	{
+
+		if ('users' === $column) {
+			$term = get_term($term_id, 'bloodgroup');
+			if (isset($term->count)) {
+				echo $term->count;
+			} else {
+				echo "0";
+			}
+		}
+	}
+
 	function dboyzregister_my_custom_menu_page()
 	{
 		add_menu_page(
@@ -96,6 +113,13 @@ class Menu
 		);
 
 		$tax = get_taxonomy('section');
+		add_users_page(
+			esc_attr($tax->labels->menu_name),
+			esc_attr($tax->labels->menu_name),
+			$tax->cap->manage_terms,
+			'edit-tags.php?taxonomy=' . $tax->name
+		);
+		$tax = get_taxonomy('bloodgroup');
 		add_users_page(
 			esc_attr($tax->labels->menu_name),
 			esc_attr($tax->labels->menu_name),

@@ -25,7 +25,7 @@ class Meta
 
 	function dboyzprofile_edit_action($user)
 	{
-		
+
 		if ('add-new-user' == $user) {
 			$uid = 0;
 		} else {
@@ -36,10 +36,10 @@ class Meta
 		<table class="form-table">
 			<tr>
 				<th>
-					<label for="code"><?php _e('Custom Meta'); ?></label>
+					<label for="phone"><?php _e('Phone'); ?></label>
 				</th>
 				<td>
-					<input type="text" name="code" id="code" value="<?php echo esc_attr(get_the_author_meta('code', $uid)); ?>" class="regular-text" />
+					<input type="text" name="phone" id="phone" value="<?php echo esc_attr(get_the_author_meta('phone', $uid)); ?>" class="regular-text" />
 				</td>
 			</tr>
 		</table>
@@ -114,6 +114,7 @@ class Meta
 		$terms = get_terms('types', array('hide_empty' => false));
 		$termsdes = get_terms('designation', array('hide_empty' => false));
 		$termssec = get_terms('section', array('hide_empty' => false));
+		$termsbg = get_terms('bloodgroup', array('hide_empty' => false));
 		?>
 
 		<h3><?php _e('Section'); ?></h3>
@@ -153,6 +154,19 @@ class Meta
 						echo $this->dboyzcustom_form_field('designation', $termsdes, $uid, "dropdown");
 					} else {
 						_e('There are no Designation available.');
+					}
+					?></td>
+			</tr>
+		</table>
+		<h3><?php _e('Blood Group'); ?></h3>
+		<table class="form-table">
+			<tr>
+				<th><label for="bloodgroup"><?php _e('Allocated Blood Group'); ?></label></th>
+				<td><?php
+					if (!empty($termsdes)) {
+						echo $this->dboyzcustom_form_field('bloodgroup', $termsbg, $uid, "dropdown");
+					} else {
+						_e('There are no Blood Group available.');
 					}
 					?></td>
 			</tr>
@@ -208,6 +222,11 @@ class Meta
 		$termsd = is_array($termd) ? $termd : (int) $termd;
 		wp_set_object_terms($user_id, $termsd, 'section', false);
 		clean_object_term_cache($user_id, 'section');
+
+		$termd = $_POST['bloodgroup'];
+		$termsd = is_array($termd) ? $termd : (int) $termd;
+		wp_set_object_terms($user_id, $termsd, 'bloodgroup', false);
+		clean_object_term_cache($user_id, 'bloodgroup');
 	}
 
 	function dboyzcustom_form_field($name, $options, $userId, $type = 'checkbox')
@@ -263,6 +282,11 @@ class Meta
 		if ('section' === $username) {
 			$username = '';
 		}
+		if ('bloodgroup' === $username) {
+			$username = '';
+		}
+
+
 
 		return $username;
 	}
@@ -276,6 +300,9 @@ class Meta
 			$parent_file = 'users.php';
 		}
 		if (isset($_GET['taxonomy']) && $_GET['taxonomy'] == 'section' && $submenu_file == 'edit-tags.php?taxonomy=section') {
+			$parent_file = 'users.php';
+		}
+		if (isset($_GET['taxonomy']) && $_GET['taxonomy'] == 'bloodgroup' && $submenu_file == 'edit-tags.php?taxonomy=bloodgroup') {
 			$parent_file = 'users.php';
 		}
 

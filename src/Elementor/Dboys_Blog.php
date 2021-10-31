@@ -21,9 +21,9 @@ class Dboys_Blog extends Widget_Base
 	}
 
 	public function get_icon()
-    {
-        return 'eicon-post';
-    }
+	{
+		return 'eicon-post';
+	}
 
 	public function get_categories()
 	{
@@ -160,7 +160,7 @@ class Dboys_Blog extends Widget_Base
 								<div class="single-blog-style1">
 									<div class="img-holder">
 										<div class="inner">
-											<?php the_post_thumbnail('homepro-blog-addon-grid'); ?>
+											<?php the_post_thumbnail('medium'); ?>
 										</div>
 									</div>
 									<!-- <div class="text-holder">

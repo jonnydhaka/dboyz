@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'website' => $_POST['website'],
             'description' => $_POST['description'],
         ]);
-
+        update_user_meta($new_user_id, 'phone', $_POST['phone']);
         update_user_meta($new_user_id, 'user_facebook', $_POST['facebook']);
         update_user_meta($new_user_id, 'user_twitter', $_POST['twitter']);
         update_user_meta($new_user_id, 'user_instagram', $_POST['instagram']);
@@ -80,6 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $termsd = is_array($termd) ? $termd : (int) $termd;
         wp_set_object_terms($new_user_id, $termsd, 'section', false);
         clean_object_term_cache($new_user_id, 'section');
+
+
+        $termd = $_POST['bloodgroup'];
+        $termsd = is_array($termd) ? $termd : (int) $termd;
+        wp_set_object_terms($new_user_id, $termsd, 'bloodgroup', false);
+        clean_object_term_cache($new_user_id, 'bloodgroup');
 
         // You could do all manner of other things here like send an email to the user, etc. I leave that to you.  
 
@@ -102,6 +108,9 @@ $termsdes = get_terms('designation', array('hide_empty' => false));
 
 $section = get_taxonomy('section');
 $termssec = get_terms('section', array('hide_empty' => false));
+
+$bloodgroup = get_taxonomy('bloodgroup');
+$termsbg = get_terms('bloodgroup', array('hide_empty' => false));
 
 
 ?>
@@ -139,6 +148,23 @@ $termssec = get_terms('section', array('hide_empty' => false));
                                 </div>
 
                                 <div class="dboyz-ps-field-group">
+                                    <label class="dboyz-ps-field-label" for="dboyz_image_upload">Blood Group</label>
+                                    <?php
+                                    echo "<select name='bloodgroup'>";
+                                    echo "<option value=''>-Select-</option>";
+                                    foreach ($termsbg as $options_value) {
+                                        echo "<option value='{$options_value->term_id}' >{$options_value->name}</option>";
+                                    }
+                                    echo "</select>";
+                                    ?>
+                                </div>
+
+                                <div class="dboyz-ps-field-group">
+                                    <label class="dboyz-ps-field-label" for="phone">Phone</label>
+                                    <input class="dboyz-ps-input-field" type="text" name="phone" placeholder="Phone" id="phone" autocomplete="off">
+                                </div>
+
+                                <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="website">Website</label>
                                     <input class="dboyz-ps-input-field" type="text" name="website" placeholder="Website" id="website" autocomplete="off">
                                 </div>
@@ -171,7 +197,7 @@ $termssec = get_terms('section', array('hide_empty' => false));
                                     <label class="dboyz-ps-field-label" for="username">Instagram</label>
                                     <input class="dboyz-ps-input-field" type="text" name="instagram" placeholder="Instagram Url" id="instagram" autocomplete="off">
                                 </div>
-                                 <div class="dboyz-ps-field-group">
+                                <div class="dboyz-ps-field-group">
                                     <label class="dboyz-ps-field-label" for="dboyz_image_upload">BIO</label>
                                     <textarea name="description" id="description" placeholder="BIO" rows="5" cols="30"></textarea>
                                 </div>

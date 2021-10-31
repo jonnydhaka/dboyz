@@ -41,6 +41,7 @@ class Frontend
     {
 
         wp_enqueue_style('elem-login-style', plugin_dir_url(__DIR__) . 'assets/css/dboyz-login-style.css', '', time());
+        wp_enqueue_style('animations-style', plugin_dir_url(__DIR__) . 'assets/css/animations.min.css', '', time());
 
         if (is_user_logged_in()) {
             $user = wp_get_current_user();
@@ -49,8 +50,10 @@ class Frontend
             wp_enqueue_media();
             $translation_array = array('accesstoken' =>  get_user_meta($user->ID, "ps_user_token", true));
             wp_enqueue_script('login-script', plugin_dir_url(__DIR__) . 'assets/js/script.js', array('jquery'), '', true);
+
             wp_localize_script('login-script', 'user_data', $translation_array);
             // }
         }
+        wp_enqueue_script('custom-script', plugin_dir_url(__DIR__) . 'assets/js/custom.js', array('jquery'), '', true);
     }
 }

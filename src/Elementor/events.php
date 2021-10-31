@@ -342,75 +342,35 @@ class Events extends Widget_Base
             <?php endif; ?>
             <?php if ($event_design_list == 'style-two') : ?>
                 <!--Upcoming Events Section-->
-                <section class="upcoming-events">
-                    <div class="circle-three"></div>
-                    <div class="circle-four"></div>
-
-                    <div class="auto-container">
-
-                        <div class="events-box wow fadeInUp" data-wow-delay="0ms">
-                            <?php
-                            $i = 0;
-                            foreach ($get_posts as $post) {
-                                setup_postdata($post);
-                                $bebio_pmeta_image = get_post_meta(get_the_ID(), 'loveus_metabox_event_meta_image', TRUE);
-                                $bebio_image_src = get_the_post_thumbnail_url(get_the_ID(), 'post-thumbnail');
-                                $i++;
-                            ?>
-                                <!-- Event Block -->
-                                <?php
-                                if ($i % 2 == 0) {
-                                    $animate_class = 'fadeInRight';
-                                } else {
-                                    $animate_class = 'fadeInLeft';
-                                }
-                                ?>
-
-                                <div class="">
-                                    <div class="text-center">
-                                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> 
-                                    <div class="image-box 4">
-                                        <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($bebio_image_src); ?>" alt="<?php echo esc_attr('Alt'); ?>"></a>
-                                    </div>
+                <?php
+                $i = 0;
+                foreach ($get_posts as $post) {
+                    setup_postdata($post);
+                    $bebio_pmeta_image = get_post_meta(get_the_ID(), 'loveus_metabox_event_meta_image', TRUE);
+                    $bebio_image_src = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                ?>
+                    <section class="blog-style1-area">
+                        <div class="container">
+                            <div class="row text-right-rtl">
+                                <div class="sec-title text-center">
+                                    <div> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </div>
+                                </div>
+                                <div class="image-box 4">
+                                    <div class="single-blog-style1">
+                                        <div class="img-holder">
+                                            <div class="inner">
+                                                <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($bebio_image_src); ?>" alt="<?php echo esc_attr('Alt'); ?>"></a>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
-
-
-                                <!-- <div class="event-block-two">
-                                    <div class="inner-box">
-                                        <div class="row clearfix">
-                                            <div class="title-column col-lg-6 col-md-12 col-sm-12">
-                                                <div class="inner">
-                                                    <div class="image-box 4">
-                                                        <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($bebio_image_src); ?>" alt="<?php echo esc_attr('Alt'); ?>"></a>
-                                                    </div>
-                                                    <div class="title">
-                                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="info-column col-lg-6 col-md-12 col-sm-12">
-                                                <div class="inner">
-                                                    <div class="clearfix">
-                                                        <ul class="info clearfix">
-                                                            <li><span class="icon far fa-clock"></span> <?php echo tribe_get_start_date($post->ID, false, 'g:i'); ?> - <?php echo tribe_get_end_date($post->ID, false, 'g:i'); ?></li>
-                                                            <li><span class="icon fa fa-map-marker-alt"></span> <?php echo tribe_get_venue() ?></li>
-                                                        </ul>
-                                                        <div class="link-box"><a href="<?php the_permalink(); ?>" class="theme-btn btn-style-one"><span class="btn-title">Read More</span></a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            <?php }
-                            wp_reset_postdata(); ?>
-
+                            </div>
                         </div>
+                    </section>
 
-                    </div>
-                </section>
+                <?php }
+                wp_reset_postdata(); ?>
             <?php endif; ?>
             <?php if ($event_design_list == 'style-three') : ?>
                 <!--Upcoming Events Section-->

@@ -5,7 +5,7 @@ $number = isset($number) ? $number : $total_authors;
 $search = isset($search) ? $search : false;
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $total_pages = ceil($total_authors / $number);
-$authors = $my_users->get_results(); 
+$authors = $my_users->get_results();
 ?>
 
 <!-- <div class="container">
@@ -13,8 +13,19 @@ $authors = $my_users->get_results();
 <section id="ebtr-team-section-252" class="ebtr-section-padding">
     <div class="ebtr-container">
 
-        <?php if (!empty($authors)) { 
+        <?php if (!empty($authors)) {
+            $array = [];
+            $isfornt = "";
+            if (is_front_page()) {
+                $isfornt = "isfornttrue";
+                $array = [["time" => "2s", "duration" => 'fadeInLeft'], ["time" => "1s", "duration" => 'fadeInLeft'], ["time" => "1s", "duration" => 'fadeInRight'], ["time" => "2s", "duration" => 'fadeInRight']];
+            }
+            $i = 0;
             foreach ($authors as $author) {
+                if ($i > 3) {
+                    $i = 0;
+                }
+
                 $author_info = get_userdata($author->ID);
                 $image_src = wp_get_attachment_image_src(get_the_author_meta('dboyzprofile_image', $author->ID), 'thumbnail');
                 if (isset($image_src[0])) {
@@ -23,17 +34,23 @@ $authors = $my_users->get_results();
                     $img_src = dboyz_PS_URL . '/assets/images/user-icon-placeholder.png';
                 }
                 $user_designation = wp_get_object_terms($author->ID, 'designation', array('fields' => 'all_with_object_id'));
+                $user_blood = wp_get_object_terms($author->ID, 'bloodgroup', array('fields' => 'all_with_object_id'));
                 $user_section = wp_get_object_terms($author->ID, 'section', array('fields' => 'all_with_object_id'));
                 if (empty($user_designation)) {
-                    $designation = "Unset";
+                    $designation = "";
                 } else {
                     $designation = $user_designation[0]->name;
                 }
+                if (empty($user_blood)) {
+                    $blood = "";
+                } else {
+                    $blood = $user_blood[0]->name;
+                }
 
-            ?>
+        ?>
 
                 <!-- .ebtr-container-left -->
-                <div class="ebtr-container-right">
+                <div class="ebtr-container-right <?php echo $isfornt; ?>" <?php echo (isset($array[$i])) ? 'data-dir="' . $array[$i]["duration"] . '" data-time="' . $array[$i]["time"] . '"' : ""; ?>>
                     <div class="ebtr-row">
                         <div class="ebtr-team-box-252">
                             <div class="ebtr-team-image">
@@ -41,9 +58,10 @@ $authors = $my_users->get_results();
                             </div>
                             <!-- .ebtr-team-image -->
                             <div class="ebtr-team-text">
-                                <h3 class="ebtr-team-name"><a href="<?php echo site_url() . "/user/" . $author_info->user_login ?>"><?php echo $author_info->first_name . " " . $author_info->last_name; ?></a></h3>
-                                <p class="ebtr-team-sec"><a href="<?php echo site_url() . "/users/section/" . str_replace(" ", "_", $user_section[0]->name) ?>"><?php echo $user_section[0]->name ?></a></p>
-                                <p class="ebtr-team-desig"><a href="<?php echo site_url() . "/users/designation/" . str_replace(" ", "_", $designation) ?>"><?php echo $designation ?></a></p>
+                                <h3 class="ebtr-team-name fs-5"><a href="<?php echo site_url() . "/user/" . $author_info->user_login ?>"><?php echo $author_info->first_name . " " . $author_info->last_name; ?></a></h3>
+                                <p class="fs-6"><a href="<?php echo site_url() . "/users/section/" . str_replace(" ", "_", $user_section[0]->name) ?>"><?php echo $user_section[0]->name ?></a></p>
+                                <p class="fs-6"><a href="<?php echo site_url() . "/users/designation/" . str_replace(" ", "_", $designation) ?>"><?php echo $designation ?></a></p>
+                                <p class="fs-6"><a href="<?php echo site_url() . "/users/bloodgroup/" . str_replace(" ", "_", $blood) ?>"><?php echo  $blood ?></a></p>
                             </div>
                             <!-- .ebtr-team-text -->
                             <div class="ebtr-team-social">
@@ -83,6 +101,7 @@ $authors = $my_users->get_results();
                 </div>
             </div> -->
             <?php
+                $i++;
             }
             ?>
     </div>
@@ -95,7 +114,7 @@ $authors = $my_users->get_results();
     <h2>No authors found</h2>
 <?php } //endif
         //echo get_permalink(get_the_ID());;
-    if ( !is_front_page() && $total_pages >1 ) { ?>
+        if (!is_front_page() && $total_pages > 1) { ?>
 
     <nav id="nav-single" style="clear:both; float:none; margin-top:20px;">
         <h3 class="assistive-text">Post navigation</h3>
