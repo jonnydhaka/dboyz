@@ -49,5 +49,6 @@
         window.addEventListener("scroll", () => { 
         handleScrollAnimation();
         });
+        handleScrollAnimation();
     })
 })(jQuery)
