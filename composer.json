@@ -1,12 +1,12 @@
 {
   "name": "smartdatasoft/dboyzforwp",
-   "description": "this is dboyz lib for ps dboyz",
+   "description": "This is dboyz lib for ps dboyz",
   "type": "wordpress-plugin",
   "license": "GPLv2",
   "authors": [
     {
-      "name": "SmartDataSoft",
-      "email": "arifur.rahman@smartdatasoft.com"
+      "name": "JONNY",
+      "email": "tanvir@me.com"
     }
   ],
   "minimum-stability": "dev",
